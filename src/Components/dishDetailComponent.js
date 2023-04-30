@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
 class DishdetailComponent extends React.Component {
+
     renderDish(dish){
         if(dish != null)
             return(
@@ -24,10 +25,13 @@ class DishdetailComponent extends React.Component {
             return(
                 <div>
                     <h4>Comments</h4>
-                    <div key={comt.comments[1].id}>
-                        <p>{comt.comments[1].comment}</p>
-                        <p>--{comt.comments[1].author},{comt.comments[1].date}</p>
-                    </div>  
+                    {comt.comments.map(data =>(
+                        <div key={data.id}>
+                            <p>{data.comment}</p>
+                            <p>--{data.author},{data.date}</p>     
+                        </div>
+                    ))}
+                      
                 </div>
             );
 
@@ -39,6 +43,9 @@ class DishdetailComponent extends React.Component {
     }
 
     render(){
+        
+
+
         return(
             <div className="row">
                 <div  className="col-12 col-md-5 m-1">
